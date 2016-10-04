@@ -12,11 +12,11 @@
             <div class="well">
                 <dl class="dl-horizontal">
                     <dt>Create At:</dt>
-                    <dd>{{ date('M j, Y H:i', strtotime($post->created_at)) }}</dd>
+                    <dd>{{ date('j M, Y H:i', strtotime($post->created_at)) }}</dd>
                     </dl>
                 <dl class="dl-horizontal">
                     <dt>Update At:</dt>
-                    <dd>{{ date('M j, Y H:i', strtotime($post->updated_at)) }}</dd>
+                    <dd>{{ date('j M, Y H:i', strtotime($post->updated_at)) }}</dd>
                 </dl>
                 <hr>
                 <div class="row">

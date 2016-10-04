@@ -20,7 +20,7 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li><a href="/klas">Klas</a></li>
-                <li><a href="/posts/create">Create Post</a> </li>
+                <li><a href="{{ route('posts.index') }}">All Posts</a> </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
