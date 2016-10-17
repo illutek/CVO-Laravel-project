@@ -27,3 +27,43 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+
+##Hoe we dit opgezet hebben.
+###Project opzetten
+Omschakelen naar vm
+
+Eerst naar vm via de map homestead met - vagrant ssh
+
+Een nieuw laravel project opzetten met -	laravel new projectName
+
+homestead.yaml file aanpassen - project toevoegen onder sites
+
+```
+    - map: test.app
+      to: /home/vagrant/sites/test
+    - map: test2.app
+      to: /home/vagrant/sites/test2
+```
+
+Opnieuw instellen van homestead.yaml met - vagrant reload --provision
+
+Op Windows ook de host file aanpassen c/Windows/Systel32/drivers/etc/host
+
+```
+127.0.0.10  projectname1.app
+127.0.0.10  projectname2.app
+```
+
+in browser naar http://projectname1.app:8000/
+
+
+
+####Array vanaf php 5.4
+een andere manier om de array te schrijven
+´´´
+array('route' => array('posts.update', $post->id)))
+['route' => ['posts.update', $post->id]]
+´´´
+
+

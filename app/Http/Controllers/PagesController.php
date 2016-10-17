@@ -8,6 +8,9 @@
 
 namespace App\Http\Controllers;
 
+// dit om de Post Controller te kunnen gebruiken op de Page controller
+use App\Post;
+
 class PagesController extends Controller
 {
     public function getIndex()
@@ -16,7 +19,8 @@ class PagesController extends Controller
          * kan ook met pages/welcome ipv pages.welcome
          * iets meer Object oriented OOP
          */
-        return view('pages.welcome');
+        $posts = Post::orderBy('created_at', 'desc')->limit(4)->get();
+        return view('pages.welcome')->withPosts($posts);
     }
 
     public function getAbout()

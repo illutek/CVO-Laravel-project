@@ -13,7 +13,7 @@
                 <dl class="dl-horizontal">
                     <dt>Create At:</dt>
                     <dd>{{ date('j M, Y H:i', strtotime($post->created_at)) }}</dd>
-                    </dl>
+                </dl>
                 <dl class="dl-horizontal">
                     <dt>Update At:</dt>
                     <dd>{{ date('j M, Y H:i', strtotime($post->updated_at)) }}</dd>
@@ -25,6 +25,11 @@
                     </div>
                     <div class="col-md-6">
                         {!! Html::linkRoute('posts.destroy', 'DELETE', array($post->id), array('class' => 'btn btn-danger btn-block')) !!}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        {!! Html::linkRoute('posts.index', '<< See all Posts',[], ['class' => 'btn btn-default btn-block btn-h1-spacing']) !!}
                     </div>
                 </div>
             </div>

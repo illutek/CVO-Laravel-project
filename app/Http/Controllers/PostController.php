@@ -17,8 +17,16 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-
+        /**
+         * alle bijdrage uit de database en doorgeven aan posts.index
+         *
+         * $posts = DB::table('posts')->paginate(5);
+         */
+        //$posts = Post::all(); Alle items
+        //$posts = Post::paginate(5); 5 items
+        //simplePaginate toont enkel 2 buttons < >
+        //orderBy desc van laatst naar eerst
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
         return view('posts.index')->withPosts($posts);
     }
 
@@ -82,7 +90,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.edit')->withPost($post);
     }
 
     /**
@@ -94,7 +103,27 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // validate the data
+        $this->validate($request, array(
+            'title' => 'required|max:255',
+            'body' => 'required'
+        ));
+
+        //Save data to the database
+        $post = Post::find($id);
+
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+
+        $post -> save();
+
+
+        // set flash data with success
+        Session::flash('success', 'The bog post was successfully update!');
+
+        // redirect with flash data to posts.show
+        return redirect()->route('posts.show', $post->id);
+
     }
 
     /**
