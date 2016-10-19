@@ -15,6 +15,10 @@ Route::get('contact', 'PagesController@getContact');
 Route::get('about', 'PagesController@getAbout');
 Route::get('oldabout', 'PagesController@getOldabout');
 Route::get('/', 'PagesController@getIndex');
+// Regular-Expressions [\w\d\-\_]+
+Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])
+    ->where('slug', '[\w\d\-\_]+');
+
 Route::get('klas', 'PagesController@getKlas');
 Route::resource('posts', 'PostController');
 

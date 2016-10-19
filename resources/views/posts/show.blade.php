@@ -11,12 +11,18 @@
         <div class="col-md-4">
             <div class="well">
                 <dl class="dl-horizontal">
-                    <dt>Create At:</dt>
-                    <dd>{{ date('j M, Y H:i', strtotime($post->created_at)) }}</dd>
+                    <label>URL:</label>
+                     {{--{{ url('blog/'.$post->slug) }}--}}
+                    {{--een betere manier is de route gebruiken--}}
+                    <p><a href="{{ route('blog.single', $post->slug) }}">{{ url('blog/'.$post->slug) }}</a></p>
                 </dl>
                 <dl class="dl-horizontal">
-                    <dt>Update At:</dt>
-                    <dd>{{ date('j M, Y H:i', strtotime($post->updated_at)) }}</dd>
+                    <label>Created At:</label>
+                    <p>{{ date('j M, Y H:i', strtotime($post->created_at)) }}</p>
+                </dl>
+                <dl class="dl-horizontal">
+                    <label>Update At:</label>
+                    <p>{{ date('j M, Y H:i', strtotime($post->updated_at)) }}</p>
                 </dl>
                 <hr>
                 <div class="row">

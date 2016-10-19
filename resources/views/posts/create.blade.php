@@ -17,6 +17,8 @@
             {!! Form::open(array('route' => 'posts.store', 'data-parsley-validate' => '')) !!}
             {{ Form::label('title', 'Title:') }}
             {{ Form::text('title', null, array('class' => 'form-control', 'required' =>'', 'maxlength' => '255')) }}
+            {{ Form::label('slug', 'Slug:') }}
+            {{ Form::text('slug', null, ['class' => 'form-control', 'required' => '', 'minlength' =>'5', 'maxlenght' => '255']) }}
             {{ Form::label('body', 'Postbody:') }}
             {{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '')) }}
             <div class="btn-wrap">

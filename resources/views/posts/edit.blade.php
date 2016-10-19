@@ -17,6 +17,9 @@
             {{ Form::label('title', 'Title:') }}
             {{ Form::text('title', null, array('class' => 'form-control')) }}
 
+            {{ Form::label('slug', 'Slug:', ['class' => 'form-spacing-top']) }}
+            {{ Form::text('slug', null, ['class' => 'form-control']) }}
+
             {{ Form::label('body', 'Post Body', ['class' => 'form-spacing-top']) }}
             {{ Form::textarea('body', null, array('class' => 'form-control')) }}
 
